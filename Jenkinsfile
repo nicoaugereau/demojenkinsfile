@@ -22,7 +22,6 @@
                 stage('Install') {
                     timestamps {
                         ansiColor('xterm') {
-                            sh 'rm -Rf reports/ || true' // Suppression des rapports de tests précédents
                             sh 'mkdir -p $HOME'
                             sh "npm ci"
                             sh "npm run cypress:verify"
