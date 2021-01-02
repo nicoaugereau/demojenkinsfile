@@ -12,7 +12,6 @@ console.log('totalHeapSizeGb: ', totalHeapSizeGb);
 
 const cypress = require('cypress')
 const yargs = require('yargs')
-const shell = require('shelljs')
 const devices = require('./config/devices.json')
 const argv = yargs.scriptName("cypress_runner")
 .usage("Usage: $0 -e [environnement] -b [browser] -d [device] -o [orientation] -s [spec]")
@@ -45,11 +44,6 @@ const argv = yargs.scriptName("cypress_runner")
 }).help()
   .argv
 
-const reportJsonFiles = `reports/**/*.json`
-const reportXMLFiles = `reports/*.xml`
-// delete all existing report files
-shell.rm('-rf', reportJsonFiles)
-shell.rm('-rf', reportXMLFiles)
 
 const specs = argv._ != '' ? 'cypress/integration/' + argv._ + '.' + argv.spec : 'cypress/integration/**/*.' + argv.spec
 
