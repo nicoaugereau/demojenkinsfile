@@ -8,8 +8,8 @@
     "cypress:verify": "cypress verify"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Nicolas Augereau",
+  "license": "MIT",
   "dependencies": {
     "cypress": "^6.2.0",
     "yargs": "^16.2.0"
