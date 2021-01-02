@@ -13,7 +13,8 @@
         checkout scm
 
         docker.image("cypress/included:6.2.0")
-            .inside("-v $WORKSPACE/build/docker-volumes/npm-cache:/.npm " +
+            .inside("--entrypoint=''"
+                    "-v $WORKSPACE/build/docker-volumes/npm-cache:/.npm " +
                     "-v $WORKSPACE/build/docker-volumes/cypress-cache:/.cache " +
                     "-e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true " +
                     "-e HOME=/tmp/home " // Pour l'installation de cypress, ne fonctionne pas sur jenkins avec un volume sur /home/node
