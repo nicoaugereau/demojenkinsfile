@@ -13,7 +13,7 @@
         checkout scm
 
         docker.image("cypress/included:6.2.0")
-            .inside("--entrypoint=''"
+            .inside("--entrypoint='' " +
                     "-v $WORKSPACE/build/docker-volumes/npm-cache:/.npm " +
                     "-v $WORKSPACE/build/docker-volumes/cypress-cache:/.cache " +
                     "-e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true " +
