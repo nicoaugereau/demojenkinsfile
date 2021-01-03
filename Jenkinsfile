@@ -3,7 +3,7 @@ node("docker") {
     properties([
         parameters([
             choice(name: 'Spec', choices: ['js', 'feature'], description: 'Types de tests à exécuter (Node JS ou Gherkin), par défaut sur js'),
-            choice(name: 'Navigateur', choices: ['electron', 'chrome', 'firefox', 'edge'], description: 'Navigateur sur lequel exécuter les tests, par défaut sur electron'),
+            choice(name: 'Navigateur', choices: ['electron', 'chrome', 'firefox'], description: 'Navigateur sur lequel exécuter les tests, par défaut sur electron'),
             text(name: 'Test', defaultValue: '', description: 'Nom du test à exécuter (e2e/distributeur/test). Exemple : 2-e2e/maaf/adhesion-papier-complete.spec')
         ]),
         buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '15')),
@@ -39,5 +39,6 @@ node("docker") {
                     }
                 }
             }
+            junit testResults: '**/reports/**/*.xml', allowEmptyResults: true
         }
 }
