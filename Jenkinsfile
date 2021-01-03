@@ -7,7 +7,7 @@
                 text(name: 'Test', defaultValue: '', description: 'Nom du test à exécuter (e2e/distributeur/test). Exemple : 2-e2e/maaf/adhesion-papier-complete.spec')
             ]),
             buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '15')),
-            pipelineTriggers([cron('H 8,14 * * 1-5 ')])
+            pipelineTriggers([cron('H 14 * * 1-5 ')])
         ])
 
         checkout scm
